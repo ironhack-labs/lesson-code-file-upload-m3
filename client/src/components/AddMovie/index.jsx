@@ -60,8 +60,10 @@ class AddMovie extends Component {
             <input type='text' name='title' value={this.state.title} onChange={this.handleChange} />
           </label>
 
-          <label>Description</label>
-          <textarea type='text' name='description' value={this.state.description} onChange={this.handleChange} />
+          <label>
+            Description
+            <textarea type='text' name='description' value={this.state.description} onChange={this.handleChange} />
+          </label>
 
           <input type='file' onChange={this.handleFileUpload} />
 
