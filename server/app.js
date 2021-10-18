@@ -19,8 +19,8 @@ require("./config")(app);
 const allRoutes = require("./routes");
 app.use("/api", allRoutes);
 
-const movieRouter = require("./routes/movie.routes"); // <== has to be added
-app.use("/api", movieRouter); // <== has to be added
+const moviesRouter = require("./routes/movies.routes"); // <== has to be added
+app.use("/api", moviesRouter); // <== has to be added
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
