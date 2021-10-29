@@ -21,10 +21,10 @@ function AddMovie() {
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
-      .handleUpload(uploadData)
+      .uploadImage(uploadData)
       .then((response) => {
         // console.log("response is: ", response);
-        // response carries 'secure_url' which we can use to update the state
+        // response carries "secure_url" which we can use to update the state
         setImageUrl(response.secure_url);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
@@ -68,7 +68,7 @@ function AddMovie() {
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <input type="file" onChange={handleFileUpload} />
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         <button type="submit">Save new movie</button>
       </form>
