@@ -1,4 +1,4 @@
-// routes/thing.routes.js
+// routes/movies.routes.js
 
 const express = require("express");
 const router = express.Router();
@@ -30,16 +30,16 @@ router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
   res.json({ secure_url: req.file.path });
 });
 
-// POST '/api/movies/create' => for saving a new movie in the database
-router.post("/movies/create", (req, res, next) => {
+// POST '/api/movies' => for saving a new movie in the database
+router.post("/movies", (req, res, next) => {
   // console.log('body: ', req.body); ==> here we can see that all
   // the fields have the same names as the ones in the model so we can simply pass
   // req.body to the .create() method
 
   Movie.create(req.body)
-    .then((newlyCreatedMovieFromDB) => {
-      // console.log('Created new movie: ', newlyCreatedMovieFromDB);
-      res.status(200).json(newlyCreatedMovieFromDB);
+    .then((createdMovie) => {
+      console.log("Created new movie: ", createdMovie);
+      res.status(200).json(createdMovie);
     })
     .catch((err) => next(err));
 });

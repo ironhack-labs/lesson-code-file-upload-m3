@@ -2,20 +2,22 @@
 
 import React from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 
-// add here AddMovie
-import AddMovie from "./components/AddMovie"; // !!!
+// Import the AddMovie component
+import AddMovie from "./components/AddMovie/AddMovie"; // !!!
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <nav>
-        <NavLink to='/movies/add'> Add a movie </NavLink>
+        <NavLink to="/"> Home </NavLink>
+        <NavLink to="/movies/add"> Add a movie </NavLink>
       </nav>
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route exact path='/movies/add' component={AddMovie} /> {/* ADD this line */}
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/movies/add" component={AddMovie} />
+        {/* ADD this line */}
       </Switch>
     </div>
   );
