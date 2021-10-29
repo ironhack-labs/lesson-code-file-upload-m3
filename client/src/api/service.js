@@ -27,6 +27,7 @@ const uploadImage = (file) => {
 };
 
 const createMovie = (newMovie) => {
+  console.log("new movie in service: ", newMovie)
   return service
     .post("/movies", newMovie)
     .then((res) => res.data)
