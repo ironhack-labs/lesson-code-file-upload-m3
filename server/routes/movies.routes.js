@@ -25,9 +25,9 @@ router.post("/upload", fileUploader.single("imageUrl"), (req, res, next) => {
     return;
   }
   // get the URL of the uploaded file and send it as a response.
-  // 'secure_url' can be any name, just make sure you remember to use the same when accessing it on the frontend
+  // 'fileUrl' can be any name, just make sure you remember to use the same when accessing it on the frontend
 
-  res.json({ secure_url: req.file.path });
+  res.json({ fileUrl: req.file.path });
 });
 
 // POST '/api/movies' => for saving a new movie in the database
