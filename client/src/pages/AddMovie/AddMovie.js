@@ -1,7 +1,7 @@
-// components/AddMovie/AddMovie.js
+// pages/AddMovie/AddMovie.js
 
-import React, { useState } from "react";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import the service since we need it to send (and get) the data to(from) the server
 import service from "../../api/service";
 
@@ -10,7 +10,9 @@ function AddMovie() {
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  // ******** this method handles just the file upload ********
+  const navigate = useNavigate();
+
+  // ******** this function handles the file upload ********
   const handleFileUpload = (e) => {
     // console.log("The file to be uploaded is: ", e.target.files[0]);
 
@@ -24,13 +26,13 @@ function AddMovie() {
       .uploadImage(uploadData)
       .then((response) => {
         // console.log("response is: ", response);
-        // response carries "secure_url" which we can use to update the state
-        setImageUrl(response.secure_url);
+        // response carries "fileUrl" which we can use to update the state
+        setImageUrl(response.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
-  // this method submits the form
+  // ******** this function submits the form ********
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -43,7 +45,8 @@ function AddMovie() {
         setDescription("");
         setImageUrl("");
 
-        // here you would redirect to some other page
+        // navigate to another page
+        navigate("/");
       })
       .catch((err) => console.log("Error while adding the new movie: ", err));
   };
