@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import service from "../../api/service";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
 
-  // When the component mounts we run an effect to get a list of movies from the server
+  // Run the effect after the initial render to get a list of movies from the server
   useEffect(() => {
     service
       .getMovies()
@@ -13,18 +13,19 @@ function HomePage() {
         setMovies(data);
       })
       .catch((err) => console.log(err));
-  }, []); //  <-- This effect will run only once after the initial render
+  }, []); //  <-- This effect will run only once, after the initial render
 
   return (
     <div className="HomePage">
       <h2>Movies</h2>
-      {movies.map((movie) => (
-        <div key={movie._id}>
-          <p>{movie.title}</p>
-          <img src={movie.imageUrl} alt="" width="200" />
-          <p>{movie.description}</p>
-        </div>
-      ))}
+      {movies &&
+        movies.map((movie) => (
+          <div key={movie._id}>
+            <p>{movie.title}</p>
+            <img src={movie.imageUrl} alt="movie" width="200" />
+            <p>{movie.description}</p>
+          </div>
+        ))}
     </div>
   );
 }
