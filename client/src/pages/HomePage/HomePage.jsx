@@ -1,5 +1,7 @@
+// pages/HomePage/HomePage.jsx
+
 import { useState, useEffect } from "react";
-import service from "../../api/service";
+import service from "../../services/file-upload.service";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);

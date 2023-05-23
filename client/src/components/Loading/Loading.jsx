@@ -1,4 +1,4 @@
-// src/components/Loading/Loading.js
+// src/components/Loading/Loading.jsx
 
 import "./Loading.css";
 

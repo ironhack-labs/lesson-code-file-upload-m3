@@ -1,4 +1,4 @@
-// src/api/service.js
+// src/services/file-upload.service.js
 
 import axios from "axios";
 
@@ -27,7 +27,7 @@ const uploadImage = (file) => {
 };
 
 const createMovie = (newMovie) => {
-  console.log("new movie in service: ", newMovie)
+  console.log("new movie in service: ", newMovie);
   return service
     .post("/movies", newMovie)
     .then((res) => res.data)

@@ -1,9 +1,9 @@
-// pages/AddMovie/AddMovie.js
+// pages/AddMovie/AddMovie.jsx
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import the service since we need it to send (and get) the data to(from) the server
-import service from "../../api/service";
+import service from "../../services/file-upload.service";
 
 function AddMovie() {
   const [title, setTitle] = useState("");
